@@ -1,8 +1,8 @@
 name := "geohash-scala"
 
-version := "0.5"
+version := "0.6"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
 // resolvers ++= Seq(
 //   "Sonatype Releases" at "http://oss.sonatype.org/content/repositories/releases"
