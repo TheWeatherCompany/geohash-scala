@@ -1,4 +1,5 @@
 name := "geohash-scala"
+organization := "com.github.davidallsopp"
 version := "0.7.0-RELEASE"
 scalaVersion := "2.11.8"
 
