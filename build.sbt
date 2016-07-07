@@ -1,6 +1,6 @@
 name := "geohash-scala"
 organization := "com.github.davidallsopp"
-version := "0.7.0-RELEASE"
+version := "0.7-SNAPSHOT"
 scalaVersion := "2.11.8"
 
 resolvers ++= Seq(
