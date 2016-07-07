@@ -1,15 +1,20 @@
 name := "geohash-scala"
-
-version := "0.6"
-
+version := "0.7.0-RELEASE"
 scalaVersion := "2.11.8"
 
-// resolvers ++= Seq(
-//   "Sonatype Releases" at "http://oss.sonatype.org/content/repositories/releases"
-// )
+resolvers ++= Seq(
+  "Artifactory" at "https://repo.artifacts.weather.com/analytics-virtual",
+  Resolver.mavenLocal
+)
 
 libraryDependencies ++= Seq(
   "org.scalacheck" %% "scalacheck" % "1.11.4" % "test"
 )
 
-org.scalastyle.sbt.ScalastylePlugin.Settings
+credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
+
+publishTo <<= version { (v: String) =>
+  val base = "https://repo.artifacts.weather.com/analytics-local"
+  val repo = if (v.trim.endsWith("SNAPSHOT")) s"$base;build.timestamp=${new java.util.Date().getTime}" else base
+  Some("Artifactory Realm" at repo)
+}
